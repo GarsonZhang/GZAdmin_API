@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="9bfd18784c214b2c93449956d4b95077" Name="Diagram1">
+        <EntityTypeShape EntityType="vueAdminModel.base_module" Width="1.5" PointX="0.75" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="vueAdminModel.base_moduleForm" Width="1.5" PointX="3" PointY="0.875" />
+        <AssociationConnector Association="vueAdminModel.FK_base_moduleForm_base_module" />
+        <EntityTypeShape EntityType="vueAdminModel.base_company" Width="1.5" PointX="0.75" PointY="5" />
+        <EntityTypeShape EntityType="vueAdminModel.base_dept" Width="1.5" PointX="3" PointY="5" />
+        <AssociationConnector Association="vueAdminModel.FK_base_dept_base_company" />
+        <EntityTypeShape EntityType="vueAdminModel.base_position" Width="1.5" PointX="5.25" PointY="5.5" />
+        <EntityTypeShape EntityType="vueAdminModel.base_user" Width="1.5" PointX="9.875" PointY="0.875" />
+        <EntityTypeShape EntityType="vueAdminModel.base_token" Width="1.5" PointX="11.875" PointY="0.875" />
+        <EntityTypeShape EntityType="vueAdminModel.base_Authorize" Width="1.5" PointX="7.375" PointY="4.75" />
+        <EntityTypeShape EntityType="vueAdminModel.base_APIList" Width="1.5" PointX="7.375" PointY="8.75" />
+        <EntityTypeShape EntityType="vueAdminModel.base_moduleFormAuthorize" Width="1.5" PointX="5.25" PointY="1.25" />
+        <AssociationConnector Association="vueAdminModel.FK_BASE_MOD_REFERENCE_BASE_MOD" />
+        <EntityTypeShape EntityType="vueAdminModel.base_moduleFormAuthorizeAction" Width="1.5" PointX="9.625" PointY="5.875" />
+        <AssociationConnector Association="vueAdminModel.FK_BASE_ACTION_REFERENCE_BASE_API" />
+        <AssociationConnector Association="vueAdminModel.FK_BASE_ACTION_REFERENCE_BASE_FORM" />
+        <AssociationConnector Association="vueAdminModel.FK_BASE_ACTION_REFERENCE_BASE_AUTHORIZE" />
+        <EntityTypeShape EntityType="vueAdminModel.base_moduleFormActions" Width="1.5" PointX="12.625" PointY="5.125" />
+        <AssociationConnector Association="vueAdminModel.FK_BASE_ACTIONS_REFERENCE_BASE_API" />
+        <AssociationConnector Association="vueAdminModel.FK_BASE_ACTIONS_REFERENCE_BASE_FORM" />
+        <AssociationConnector Association="vueAdminModel.FK_BASE_POS_REFERENCE_BASE_COM" />
+        <EntityTypeShape EntityType="vueAdminModel.base_userRelation" Width="1.5" PointX="12.125" PointY="8.625" />
+        <AssociationConnector Association="vueAdminModel.FK_BASE_URELATION_REFERENCE_BASE_USE" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

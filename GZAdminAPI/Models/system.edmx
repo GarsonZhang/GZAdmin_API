@@ -1,0 +1,1016 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="vueAdminModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="base_APIList">
+          <Key>
+            <PropertyRef Name="rowID" />
+          </Key>
+          <Property Name="isid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="rowID" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="APIName" Type="varchar" MaxLength="200" />
+          <Property Name="url" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="checkType" Type="int" Nullable="false" />
+          <Property Name="createUser" Type="varchar" MaxLength="50" />
+          <Property Name="createTime" Type="datetime" />
+        </EntityType>
+        <EntityType Name="base_Authorize">
+          <Key>
+            <PropertyRef Name="rowID" />
+          </Key>
+          <Property Name="isid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="rowID" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="category" Type="int" />
+          <Property Name="objectID" Type="varchar" MaxLength="50" />
+          <Property Name="itemType" Type="int" />
+          <Property Name="itemID" Type="varchar" MaxLength="500" />
+          <Property Name="sort" Type="int" />
+          <Property Name="createUser" Type="varchar" MaxLength="50" />
+          <Property Name="createTime" Type="datetime" />
+        </EntityType>
+        <EntityType Name="base_company">
+          <Key>
+            <PropertyRef Name="rowID" />
+          </Key>
+          <Property Name="isid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="rowID" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="companyCode" Type="varchar" MaxLength="20" />
+          <Property Name="companyName_chs" Type="nvarchar" MaxLength="50" />
+          <Property Name="companyName_en" Type="nchar" MaxLength="10" />
+          <Property Name="parentID" Type="varchar" MaxLength="50" />
+          <Property Name="parentFullID" Type="nvarchar" MaxLength="400" />
+          <Property Name="parentFullName" Type="nvarchar" MaxLength="400" />
+          <Property Name="principalName" Type="nvarchar" MaxLength="20" />
+          <Property Name="principalPhone" Type="nvarchar" MaxLength="50" />
+          <Property Name="principalEmail" Type="nvarchar" MaxLength="50" />
+          <Property Name="address" Type="nvarchar" MaxLength="500" />
+          <Property Name="levelID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="base_dept">
+          <Key>
+            <PropertyRef Name="rowID" />
+          </Key>
+          <Property Name="isid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="rowID" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="deptCode" Type="varchar" MaxLength="20" />
+          <Property Name="deptName" Type="nvarchar" MaxLength="20" />
+          <Property Name="dtptShortName" Type="varchar" MaxLength="20" />
+          <Property Name="companyID" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="parentID" Type="varchar" MaxLength="50" />
+          <Property Name="parentFullID" Type="nvarchar" MaxLength="400" />
+          <Property Name="parentFullName" Type="nvarchar" MaxLength="400" />
+          <Property Name="principalName" Type="nvarchar" MaxLength="20" />
+          <Property Name="principalPhone" Type="nvarchar" MaxLength="50" />
+          <Property Name="principalEmail" Type="nvarchar" MaxLength="50" />
+          <Property Name="remark" Type="nvarchar" MaxLength="200" />
+          <Property Name="levelID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="base_module">
+          <Key>
+            <PropertyRef Name="rowID" />
+          </Key>
+          <Property Name="isid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="rowID" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="name" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="description" Type="nvarchar" MaxLength="50" />
+          <Property Name="description_tw" Type="nvarchar" MaxLength="50" />
+          <Property Name="description_en" Type="nvarchar" MaxLength="50" />
+          <Property Name="description_other" Type="nvarchar" MaxLength="50" />
+          <Property Name="icon" Type="nvarchar" MaxLength="50" />
+          <Property Name="componentPath" Type="varchar" MaxLength="50" />
+          <Property Name="componentName" Type="varchar" MaxLength="100" />
+          <Property Name="sort" Type="int" />
+        </EntityType>
+        <EntityType Name="base_moduleForm">
+          <Key>
+            <PropertyRef Name="rowID" />
+          </Key>
+          <Property Name="isid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="rowID" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="mainID" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="name" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="icon" Type="varchar" MaxLength="50" />
+          <Property Name="description" Type="nvarchar" MaxLength="50" />
+          <Property Name="description_tw" Type="nvarchar" MaxLength="50" />
+          <Property Name="description_en" Type="nvarchar" MaxLength="50" />
+          <Property Name="description_other" Type="nvarchar" MaxLength="50" />
+          <Property Name="routeName" Type="varchar" MaxLength="100" />
+          <Property Name="componentPath" Type="varchar" MaxLength="50" />
+          <Property Name="componentName" Type="varchar" MaxLength="100" />
+          <Property Name="sort" Type="int" />
+        </EntityType>
+        <EntityType Name="base_moduleFormActions">
+          <Key>
+            <PropertyRef Name="rowID" />
+          </Key>
+          <Property Name="isid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="rowID" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="formID" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="apiID" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="base_moduleFormAuthorize">
+          <Key>
+            <PropertyRef Name="rowID" />
+          </Key>
+          <Property Name="isid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="rowID" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="formID" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="authorizeName" Type="varchar" MaxLength="20" />
+          <Property Name="authorizeValue" Type="int" />
+        </EntityType>
+        <EntityType Name="base_moduleFormAuthorizeAction">
+          <Key>
+            <PropertyRef Name="rowID" />
+          </Key>
+          <Property Name="isid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="rowID" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="formID" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="authorizeID" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="apiID" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="base_position">
+          <Key>
+            <PropertyRef Name="rowID" />
+          </Key>
+          <Property Name="isid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="rowID" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="companyID" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="posCode" Type="varchar" MaxLength="20" />
+          <Property Name="posName" Type="nvarchar" MaxLength="20" />
+          <Property Name="parentID" Type="varchar" MaxLength="50" />
+          <Property Name="parentFullID" Type="nvarchar" MaxLength="400" />
+          <Property Name="parentFullName" Type="nvarchar" MaxLength="400" />
+          <Property Name="levelID" Type="int" Nullable="false" />
+          <Property Name="remark" Type="nvarchar" MaxLength="200" />
+        </EntityType>
+        <EntityType Name="base_token">
+          <Key>
+            <PropertyRef Name="token" />
+          </Key>
+          <Property Name="isid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="userID" Type="varchar" MaxLength="50" />
+          <Property Name="token" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="secretKey" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="secretID" Type="bigint" Nullable="false" />
+          <Property Name="IPAddress" Type="varchar" MaxLength="50" />
+          <Property Name="Client" Type="varchar" MaxLength="50" />
+          <Property Name="createTime" Type="datetime" />
+          <Property Name="updateTime" Type="datetime" />
+          <Property Name="status" Type="int" />
+        </EntityType>
+        <EntityType Name="base_user">
+          <Key>
+            <PropertyRef Name="rowID" />
+          </Key>
+          <Property Name="isid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="rowID" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="account" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="password" Type="varchar" MaxLength="50" />
+          <Property Name="userName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="sex" Type="varchar" MaxLength="2" />
+          <Property Name="companyID" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="deptID" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="phone" Type="varchar" MaxLength="20" />
+          <Property Name="status" Type="int" Nullable="false" />
+          <Property Name="remark" Type="nvarchar" MaxLength="200" />
+          <Property Name="createUser" Type="varchar" MaxLength="50" />
+          <Property Name="createTime" Type="datetime" />
+          <Property Name="updateUser" Type="varchar" MaxLength="50" />
+          <Property Name="updateTime" Type="datetime" />
+        </EntityType>
+        <EntityType Name="base_userRelation">
+          <Key>
+            <PropertyRef Name="rowID" />
+          </Key>
+          <Property Name="isid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="rowID" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="userID" Type="varchar" MaxLength="50" />
+          <Property Name="Category" Type="int" />
+          <Property Name="ObjectID" Type="varchar" MaxLength="50" />
+          <Property Name="createUser" Type="varchar" MaxLength="50" />
+          <Property Name="createTime" Type="datetime" />
+        </EntityType>
+        <Association Name="FK_BASE_ACTION_REFERENCE_BASE_API">
+          <End Role="base_APIList" Type="Self.base_APIList" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="base_moduleFormAuthorizeAction" Type="Self.base_moduleFormAuthorizeAction" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="base_APIList">
+              <PropertyRef Name="rowID" />
+            </Principal>
+            <Dependent Role="base_moduleFormAuthorizeAction">
+              <PropertyRef Name="apiID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BASE_ACTION_REFERENCE_BASE_AUTHORIZE">
+          <End Role="base_moduleFormAuthorize" Type="Self.base_moduleFormAuthorize" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="base_moduleFormAuthorizeAction" Type="Self.base_moduleFormAuthorizeAction" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="base_moduleFormAuthorize">
+              <PropertyRef Name="rowID" />
+            </Principal>
+            <Dependent Role="base_moduleFormAuthorizeAction">
+              <PropertyRef Name="authorizeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BASE_ACTION_REFERENCE_BASE_FORM">
+          <End Role="base_moduleForm" Type="Self.base_moduleForm" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="base_moduleFormAuthorizeAction" Type="Self.base_moduleFormAuthorizeAction" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="base_moduleForm">
+              <PropertyRef Name="rowID" />
+            </Principal>
+            <Dependent Role="base_moduleFormAuthorizeAction">
+              <PropertyRef Name="formID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BASE_ACTIONS_REFERENCE_BASE_API">
+          <End Role="base_APIList" Type="Self.base_APIList" Multiplicity="1" />
+          <End Role="base_moduleFormActions" Type="Self.base_moduleFormActions" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="base_APIList">
+              <PropertyRef Name="rowID" />
+            </Principal>
+            <Dependent Role="base_moduleFormActions">
+              <PropertyRef Name="apiID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BASE_ACTIONS_REFERENCE_BASE_FORM">
+          <End Role="base_moduleForm" Type="Self.base_moduleForm" Multiplicity="1" />
+          <End Role="base_moduleFormActions" Type="Self.base_moduleFormActions" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="base_moduleForm">
+              <PropertyRef Name="rowID" />
+            </Principal>
+            <Dependent Role="base_moduleFormActions">
+              <PropertyRef Name="formID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_base_dept_base_company">
+          <End Role="base_company" Type="Self.base_company" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="base_dept" Type="Self.base_dept" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="base_company">
+              <PropertyRef Name="rowID" />
+            </Principal>
+            <Dependent Role="base_dept">
+              <PropertyRef Name="companyID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BASE_MOD_REFERENCE_BASE_MOD">
+          <End Role="base_moduleForm" Type="Self.base_moduleForm" Multiplicity="1" />
+          <End Role="base_moduleFormAuthorize" Type="Self.base_moduleFormAuthorize" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="base_moduleForm">
+              <PropertyRef Name="rowID" />
+            </Principal>
+            <Dependent Role="base_moduleFormAuthorize">
+              <PropertyRef Name="formID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_base_moduleForm_base_module">
+          <End Role="base_module" Type="Self.base_module" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="base_moduleForm" Type="Self.base_moduleForm" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="base_module">
+              <PropertyRef Name="rowID" />
+            </Principal>
+            <Dependent Role="base_moduleForm">
+              <PropertyRef Name="mainID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BASE_POS_REFERENCE_BASE_COM">
+          <End Role="base_company" Type="Self.base_company" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="base_position" Type="Self.base_position" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="base_company">
+              <PropertyRef Name="rowID" />
+            </Principal>
+            <Dependent Role="base_position">
+              <PropertyRef Name="companyID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BASE_URELATION_REFERENCE_BASE_USE">
+          <End Role="base_user" Type="Self.base_user" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="base_userRelation" Type="Self.base_userRelation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="base_user">
+              <PropertyRef Name="rowID" />
+            </Principal>
+            <Dependent Role="base_userRelation">
+              <PropertyRef Name="userID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="vueAdminModelStoreContainer">
+          <EntitySet Name="base_APIList" EntityType="Self.base_APIList" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="base_Authorize" EntityType="Self.base_Authorize" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="base_company" EntityType="Self.base_company" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="base_dept" EntityType="Self.base_dept" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="base_module" EntityType="Self.base_module" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="base_moduleForm" EntityType="Self.base_moduleForm" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="base_moduleFormActions" EntityType="Self.base_moduleFormActions" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="base_moduleFormAuthorize" EntityType="Self.base_moduleFormAuthorize" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="base_moduleFormAuthorizeAction" EntityType="Self.base_moduleFormAuthorizeAction" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="base_position" EntityType="Self.base_position" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="base_token" EntityType="Self.base_token" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="base_user" EntityType="Self.base_user" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="base_userRelation" EntityType="Self.base_userRelation" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_BASE_ACTION_REFERENCE_BASE_API" Association="Self.FK_BASE_ACTION_REFERENCE_BASE_API">
+            <End Role="base_APIList" EntitySet="base_APIList" />
+            <End Role="base_moduleFormAuthorizeAction" EntitySet="base_moduleFormAuthorizeAction" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BASE_ACTION_REFERENCE_BASE_AUTHORIZE" Association="Self.FK_BASE_ACTION_REFERENCE_BASE_AUTHORIZE">
+            <End Role="base_moduleFormAuthorize" EntitySet="base_moduleFormAuthorize" />
+            <End Role="base_moduleFormAuthorizeAction" EntitySet="base_moduleFormAuthorizeAction" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BASE_ACTION_REFERENCE_BASE_FORM" Association="Self.FK_BASE_ACTION_REFERENCE_BASE_FORM">
+            <End Role="base_moduleForm" EntitySet="base_moduleForm" />
+            <End Role="base_moduleFormAuthorizeAction" EntitySet="base_moduleFormAuthorizeAction" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BASE_ACTIONS_REFERENCE_BASE_API" Association="Self.FK_BASE_ACTIONS_REFERENCE_BASE_API">
+            <End Role="base_APIList" EntitySet="base_APIList" />
+            <End Role="base_moduleFormActions" EntitySet="base_moduleFormActions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BASE_ACTIONS_REFERENCE_BASE_FORM" Association="Self.FK_BASE_ACTIONS_REFERENCE_BASE_FORM">
+            <End Role="base_moduleForm" EntitySet="base_moduleForm" />
+            <End Role="base_moduleFormActions" EntitySet="base_moduleFormActions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_base_dept_base_company" Association="Self.FK_base_dept_base_company">
+            <End Role="base_company" EntitySet="base_company" />
+            <End Role="base_dept" EntitySet="base_dept" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BASE_MOD_REFERENCE_BASE_MOD" Association="Self.FK_BASE_MOD_REFERENCE_BASE_MOD">
+            <End Role="base_moduleForm" EntitySet="base_moduleForm" />
+            <End Role="base_moduleFormAuthorize" EntitySet="base_moduleFormAuthorize" />
+          </AssociationSet>
+          <AssociationSet Name="FK_base_moduleForm_base_module" Association="Self.FK_base_moduleForm_base_module">
+            <End Role="base_module" EntitySet="base_module" />
+            <End Role="base_moduleForm" EntitySet="base_moduleForm" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BASE_POS_REFERENCE_BASE_COM" Association="Self.FK_BASE_POS_REFERENCE_BASE_COM">
+            <End Role="base_company" EntitySet="base_company" />
+            <End Role="base_position" EntitySet="base_position" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BASE_URELATION_REFERENCE_BASE_USE" Association="Self.FK_BASE_URELATION_REFERENCE_BASE_USE">
+            <End Role="base_user" EntitySet="base_user" />
+            <End Role="base_userRelation" EntitySet="base_userRelation" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="vueAdminModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="base_module">
+          <Key>
+            <PropertyRef Name="rowID" />
+          </Key>
+          <Property Name="isid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="rowID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="description" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="icon" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="componentPath" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="componentName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="sort" Type="Int32" />
+          <NavigationProperty Name="base_moduleForm" Relationship="vueAdminModel.FK_base_moduleForm_base_module" FromRole="base_module" ToRole="base_moduleForm" />
+          <Property Name="description_tw" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="description_en" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="description_other" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityContainer Name="vueAdminSystem" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="base_module" EntityType="Self.base_module" />
+          <EntitySet Name="base_moduleForm" EntityType="vueAdminModel.base_moduleForm" />
+          <AssociationSet Name="FK_base_moduleForm_base_module" Association="vueAdminModel.FK_base_moduleForm_base_module">
+            <End Role="base_module" EntitySet="base_module" />
+            <End Role="base_moduleForm" EntitySet="base_moduleForm" />
+          </AssociationSet>
+          <EntitySet Name="base_company" EntityType="vueAdminModel.base_company" />
+          <EntitySet Name="base_dept" EntityType="vueAdminModel.base_dept" />
+          <AssociationSet Name="FK_base_dept_base_company" Association="vueAdminModel.FK_base_dept_base_company">
+            <End Role="base_company" EntitySet="base_company" />
+            <End Role="base_dept" EntitySet="base_dept" />
+          </AssociationSet>
+          <EntitySet Name="base_position" EntityType="vueAdminModel.base_position" />
+          <EntitySet Name="base_user" EntityType="vueAdminModel.base_user" />
+          <EntitySet Name="base_token" EntityType="vueAdminModel.base_token" />
+          <EntitySet Name="base_Authorize" EntityType="vueAdminModel.base_Authorize" />
+          <EntitySet Name="base_APIList" EntityType="vueAdminModel.base_APIList" />
+          <EntitySet Name="base_moduleFormAuthorize" EntityType="vueAdminModel.base_moduleFormAuthorize" />
+          <AssociationSet Name="FK_BASE_MOD_REFERENCE_BASE_MOD" Association="vueAdminModel.FK_BASE_MOD_REFERENCE_BASE_MOD">
+            <End Role="base_moduleForm" EntitySet="base_moduleForm" />
+            <End Role="base_moduleFormAuthorize" EntitySet="base_moduleFormAuthorize" />
+          </AssociationSet>
+          <EntitySet Name="base_moduleFormAuthorizeAction" EntityType="vueAdminModel.base_moduleFormAuthorizeAction" />
+          <AssociationSet Name="FK_BASE_ACTION_REFERENCE_BASE_API" Association="vueAdminModel.FK_BASE_ACTION_REFERENCE_BASE_API">
+            <End Role="base_APIList" EntitySet="base_APIList" />
+            <End Role="base_moduleFormAuthorizeAction" EntitySet="base_moduleFormAuthorizeAction" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BASE_ACTION_REFERENCE_BASE_FORM" Association="vueAdminModel.FK_BASE_ACTION_REFERENCE_BASE_FORM">
+            <End Role="base_moduleForm" EntitySet="base_moduleForm" />
+            <End Role="base_moduleFormAuthorizeAction" EntitySet="base_moduleFormAuthorizeAction" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BASE_ACTION_REFERENCE_BASE_AUTHORIZE" Association="vueAdminModel.FK_BASE_ACTION_REFERENCE_BASE_AUTHORIZE">
+            <End Role="base_moduleFormAuthorize" EntitySet="base_moduleFormAuthorize" />
+            <End Role="base_moduleFormAuthorizeAction" EntitySet="base_moduleFormAuthorizeAction" />
+          </AssociationSet>
+          <EntitySet Name="base_moduleFormActions" EntityType="vueAdminModel.base_moduleFormActions" />
+          <AssociationSet Name="FK_BASE_ACTIONS_REFERENCE_BASE_API" Association="vueAdminModel.FK_BASE_ACTIONS_REFERENCE_BASE_API">
+            <End Role="base_APIList" EntitySet="base_APIList" />
+            <End Role="base_moduleFormActions" EntitySet="base_moduleFormActions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BASE_ACTIONS_REFERENCE_BASE_FORM" Association="vueAdminModel.FK_BASE_ACTIONS_REFERENCE_BASE_FORM">
+            <End Role="base_moduleForm" EntitySet="base_moduleForm" />
+            <End Role="base_moduleFormActions" EntitySet="base_moduleFormActions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BASE_POS_REFERENCE_BASE_COM" Association="vueAdminModel.FK_BASE_POS_REFERENCE_BASE_COM">
+            <End Role="base_company" EntitySet="base_company" />
+            <End Role="base_position" EntitySet="base_position" />
+          </AssociationSet>
+          <EntitySet Name="base_userRelation" EntityType="vueAdminModel.base_userRelation" />
+          <AssociationSet Name="FK_BASE_URELATION_REFERENCE_BASE_USE" Association="vueAdminModel.FK_BASE_URELATION_REFERENCE_BASE_USE">
+            <End Role="base_user" EntitySet="base_user" />
+            <End Role="base_userRelation" EntitySet="base_userRelation" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="base_moduleForm">
+          <Key>
+            <PropertyRef Name="rowID" />
+          </Key>
+          <Property Name="isid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="rowID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="mainID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="description" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="routeName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="componentPath" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="componentName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="sort" Type="Int32" />
+          <NavigationProperty Name="base_module" Relationship="vueAdminModel.FK_base_moduleForm_base_module" FromRole="base_moduleForm" ToRole="base_module" />
+          <NavigationProperty Name="base_moduleFormAuthorize" Relationship="vueAdminModel.FK_BASE_MOD_REFERENCE_BASE_MOD" FromRole="base_moduleForm" ToRole="base_moduleFormAuthorize" />
+          <NavigationProperty Name="base_moduleFormAuthorizeAction" Relationship="vueAdminModel.FK_BASE_ACTION_REFERENCE_BASE_FORM" FromRole="base_moduleForm" ToRole="base_moduleFormAuthorizeAction" />
+          <NavigationProperty Name="base_moduleFormActions" Relationship="vueAdminModel.FK_BASE_ACTIONS_REFERENCE_BASE_FORM" FromRole="base_moduleForm" ToRole="base_moduleFormActions" />
+          <Property Name="icon" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="description_tw" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="description_en" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="description_other" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <Association Name="FK_base_moduleForm_base_module">
+          <End Type="vueAdminModel.base_module" Role="base_module" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="vueAdminModel.base_moduleForm" Role="base_moduleForm" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="base_module">
+              <PropertyRef Name="rowID" />
+            </Principal>
+            <Dependent Role="base_moduleForm">
+              <PropertyRef Name="mainID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="base_company">
+          <Key>
+            <PropertyRef Name="rowID" />
+          </Key>
+          <Property Name="isid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="rowID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="companyCode" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="companyName_chs" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="companyName_en" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="parentID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="parentFullID" Type="String" MaxLength="400" FixedLength="false" Unicode="true" />
+          <Property Name="parentFullName" Type="String" MaxLength="400" FixedLength="false" Unicode="true" />
+          <Property Name="principalName" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="principalPhone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="principalEmail" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="address" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="levelID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="base_dept" Relationship="vueAdminModel.FK_base_dept_base_company" FromRole="base_company" ToRole="base_dept" />
+          <NavigationProperty Name="base_position" Relationship="vueAdminModel.FK_BASE_POS_REFERENCE_BASE_COM" FromRole="base_company" ToRole="base_position" />
+        </EntityType>
+        <EntityType Name="base_dept">
+          <Key>
+            <PropertyRef Name="rowID" />
+          </Key>
+          <Property Name="isid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="rowID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="deptCode" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="deptName" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="dtptShortName" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="companyID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="principalName" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="principalPhone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="principalEmail" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="remark" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="base_company" Relationship="vueAdminModel.FK_base_dept_base_company" FromRole="base_dept" ToRole="base_company" />
+          <Property Name="parentID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="parentFullID" Type="String" MaxLength="400" FixedLength="false" Unicode="true" />
+          <Property Name="parentFullName" Type="String" MaxLength="400" FixedLength="false" Unicode="true" />
+          <Property Name="levelID" Type="Int32" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_base_dept_base_company">
+          <End Type="vueAdminModel.base_company" Role="base_company" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="vueAdminModel.base_dept" Role="base_dept" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="base_company">
+              <PropertyRef Name="rowID" />
+            </Principal>
+            <Dependent Role="base_dept">
+              <PropertyRef Name="companyID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="base_position">
+          <Key>
+            <PropertyRef Name="rowID" />
+          </Key>
+          <Property Name="isid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="rowID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="companyID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="posCode" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="posName" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="parentID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="parentFullID" Type="String" MaxLength="400" FixedLength="false" Unicode="true" />
+          <Property Name="parentFullName" Type="String" MaxLength="400" FixedLength="false" Unicode="true" />
+          <Property Name="remark" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="levelID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="base_company" Relationship="vueAdminModel.FK_BASE_POS_REFERENCE_BASE_COM" FromRole="base_position" ToRole="base_company" />
+        </EntityType>
+        <EntityType Name="base_user">
+          <Key>
+            <PropertyRef Name="rowID" />
+          </Key>
+          <Property Name="isid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="rowID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="account" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="userName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="sex" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="companyID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="deptID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="phone" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="status" Type="Int32" Nullable="false" />
+          <Property Name="remark" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="createUser" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="createTime" Type="DateTime" Precision="3" />
+          <Property Name="password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="updateUser" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="updateTime" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="base_userRelation" Relationship="vueAdminModel.FK_BASE_URELATION_REFERENCE_BASE_USE" FromRole="base_user" ToRole="base_userRelation" />
+        </EntityType>
+        <EntityType Name="base_token">
+          <Key>
+            <PropertyRef Name="token" />
+          </Key>
+          <Property Name="isid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="userID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="token" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="secretKey" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="IPAddress" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="createTime" Type="DateTime" Precision="3" />
+          <Property Name="updateTime" Type="DateTime" Precision="3" />
+          <Property Name="status" Type="Int32" />
+          <Property Name="Client" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="secretID" Type="Int64" Nullable="false" />
+        </EntityType>
+        <EntityType Name="base_Authorize">
+          <Key>
+            <PropertyRef Name="rowID" />
+          </Key>
+          <Property Name="isid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="rowID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="category" Type="Int32" />
+          <Property Name="objectID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="itemType" Type="Int32" />
+          <Property Name="itemID" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="sort" Type="Int32" />
+          <Property Name="createUser" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="createTime" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="base_APIList">
+          <Key>
+            <PropertyRef Name="rowID" />
+          </Key>
+          <Property Name="isid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="rowID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="APIName" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="url" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="checkType" Type="Int32" Nullable="false" />
+          <Property Name="createUser" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="createTime" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="base_moduleFormAuthorizeAction" Relationship="vueAdminModel.FK_BASE_ACTION_REFERENCE_BASE_API" FromRole="base_APIList" ToRole="base_moduleFormAuthorizeAction" />
+          <NavigationProperty Name="base_moduleFormActions" Relationship="vueAdminModel.FK_BASE_ACTIONS_REFERENCE_BASE_API" FromRole="base_APIList" ToRole="base_moduleFormActions" />
+        </EntityType>
+        <EntityType Name="base_moduleFormAuthorize">
+          <Key>
+            <PropertyRef Name="rowID" />
+          </Key>
+          <Property Name="isid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="rowID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="formID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="authorizeName" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="authorizeValue" Type="Int32" />
+          <NavigationProperty Name="base_moduleForm" Relationship="vueAdminModel.FK_BASE_MOD_REFERENCE_BASE_MOD" FromRole="base_moduleFormAuthorize" ToRole="base_moduleForm" />
+          <NavigationProperty Name="base_moduleFormAuthorizeAction" Relationship="vueAdminModel.FK_BASE_ACTION_REFERENCE_BASE_AUTHORIZE" FromRole="base_moduleFormAuthorize" ToRole="base_moduleFormAuthorizeAction" />
+        </EntityType>
+        <Association Name="FK_BASE_MOD_REFERENCE_BASE_MOD">
+          <End Type="vueAdminModel.base_moduleForm" Role="base_moduleForm" Multiplicity="1" />
+          <End Type="vueAdminModel.base_moduleFormAuthorize" Role="base_moduleFormAuthorize" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="base_moduleForm">
+              <PropertyRef Name="rowID" />
+            </Principal>
+            <Dependent Role="base_moduleFormAuthorize">
+              <PropertyRef Name="formID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="base_moduleFormAuthorizeAction">
+          <Key>
+            <PropertyRef Name="rowID" />
+          </Key>
+          <Property Name="isid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="rowID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="formID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="authorizeID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="apiID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="base_APIList" Relationship="vueAdminModel.FK_BASE_ACTION_REFERENCE_BASE_API" FromRole="base_moduleFormAuthorizeAction" ToRole="base_APIList" />
+          <NavigationProperty Name="base_moduleForm" Relationship="vueAdminModel.FK_BASE_ACTION_REFERENCE_BASE_FORM" FromRole="base_moduleFormAuthorizeAction" ToRole="base_moduleForm" />
+          <NavigationProperty Name="base_moduleFormAuthorize" Relationship="vueAdminModel.FK_BASE_ACTION_REFERENCE_BASE_AUTHORIZE" FromRole="base_moduleFormAuthorizeAction" ToRole="base_moduleFormAuthorize" />
+        </EntityType>
+        <Association Name="FK_BASE_ACTION_REFERENCE_BASE_API">
+          <End Type="vueAdminModel.base_APIList" Role="base_APIList" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="vueAdminModel.base_moduleFormAuthorizeAction" Role="base_moduleFormAuthorizeAction" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="base_APIList">
+              <PropertyRef Name="rowID" />
+            </Principal>
+            <Dependent Role="base_moduleFormAuthorizeAction">
+              <PropertyRef Name="apiID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BASE_ACTION_REFERENCE_BASE_FORM">
+          <End Type="vueAdminModel.base_moduleForm" Role="base_moduleForm" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="vueAdminModel.base_moduleFormAuthorizeAction" Role="base_moduleFormAuthorizeAction" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="base_moduleForm">
+              <PropertyRef Name="rowID" />
+            </Principal>
+            <Dependent Role="base_moduleFormAuthorizeAction">
+              <PropertyRef Name="formID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BASE_ACTION_REFERENCE_BASE_AUTHORIZE">
+          <End Type="vueAdminModel.base_moduleFormAuthorize" Role="base_moduleFormAuthorize" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="vueAdminModel.base_moduleFormAuthorizeAction" Role="base_moduleFormAuthorizeAction" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="base_moduleFormAuthorize">
+              <PropertyRef Name="rowID" />
+            </Principal>
+            <Dependent Role="base_moduleFormAuthorizeAction">
+              <PropertyRef Name="authorizeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="base_moduleFormActions">
+          <Key>
+            <PropertyRef Name="rowID" />
+          </Key>
+          <Property Name="isid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="rowID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="formID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="apiID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="base_APIList" Relationship="vueAdminModel.FK_BASE_ACTIONS_REFERENCE_BASE_API" FromRole="base_moduleFormActions" ToRole="base_APIList" />
+          <NavigationProperty Name="base_moduleForm" Relationship="vueAdminModel.FK_BASE_ACTIONS_REFERENCE_BASE_FORM" FromRole="base_moduleFormActions" ToRole="base_moduleForm" />
+        </EntityType>
+        <Association Name="FK_BASE_ACTIONS_REFERENCE_BASE_API">
+          <End Type="vueAdminModel.base_APIList" Role="base_APIList" Multiplicity="1" />
+          <End Type="vueAdminModel.base_moduleFormActions" Role="base_moduleFormActions" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="base_APIList">
+              <PropertyRef Name="rowID" />
+            </Principal>
+            <Dependent Role="base_moduleFormActions">
+              <PropertyRef Name="apiID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BASE_ACTIONS_REFERENCE_BASE_FORM">
+          <End Type="vueAdminModel.base_moduleForm" Role="base_moduleForm" Multiplicity="1" />
+          <End Type="vueAdminModel.base_moduleFormActions" Role="base_moduleFormActions" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="base_moduleForm">
+              <PropertyRef Name="rowID" />
+            </Principal>
+            <Dependent Role="base_moduleFormActions">
+              <PropertyRef Name="formID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BASE_POS_REFERENCE_BASE_COM">
+          <End Type="vueAdminModel.base_company" Role="base_company" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="vueAdminModel.base_position" Role="base_position" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="base_company">
+              <PropertyRef Name="rowID" />
+            </Principal>
+            <Dependent Role="base_position">
+              <PropertyRef Name="companyID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="base_userRelation">
+          <Key>
+            <PropertyRef Name="rowID" />
+          </Key>
+          <Property Name="isid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="rowID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="userID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Category" Type="Int32" />
+          <Property Name="ObjectID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="createUser" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="createTime" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="base_user" Relationship="vueAdminModel.FK_BASE_URELATION_REFERENCE_BASE_USE" FromRole="base_userRelation" ToRole="base_user" />
+        </EntityType>
+        <Association Name="FK_BASE_URELATION_REFERENCE_BASE_USE">
+          <End Type="vueAdminModel.base_user" Role="base_user" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="vueAdminModel.base_userRelation" Role="base_userRelation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="base_user">
+              <PropertyRef Name="rowID" />
+            </Principal>
+            <Dependent Role="base_userRelation">
+              <PropertyRef Name="userID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="vueAdminModelStoreContainer" CdmEntityContainer="vueAdminSystem">
+          <EntitySetMapping Name="base_module">
+            <EntityTypeMapping TypeName="vueAdminModel.base_module">
+              <MappingFragment StoreEntitySet="base_module">
+                <ScalarProperty Name="description_other" ColumnName="description_other" />
+                <ScalarProperty Name="description_en" ColumnName="description_en" />
+                <ScalarProperty Name="description_tw" ColumnName="description_tw" />
+                <ScalarProperty Name="isid" ColumnName="isid" />
+                <ScalarProperty Name="rowID" ColumnName="rowID" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="description" ColumnName="description" />
+                <ScalarProperty Name="icon" ColumnName="icon" />
+                <ScalarProperty Name="componentPath" ColumnName="componentPath" />
+                <ScalarProperty Name="componentName" ColumnName="componentName" />
+                <ScalarProperty Name="sort" ColumnName="sort" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="base_moduleForm">
+            <EntityTypeMapping TypeName="vueAdminModel.base_moduleForm">
+              <MappingFragment StoreEntitySet="base_moduleForm">
+                <ScalarProperty Name="description_other" ColumnName="description_other" />
+                <ScalarProperty Name="description_en" ColumnName="description_en" />
+                <ScalarProperty Name="description_tw" ColumnName="description_tw" />
+                <ScalarProperty Name="icon" ColumnName="icon" />
+                <ScalarProperty Name="sort" ColumnName="sort" />
+                <ScalarProperty Name="componentName" ColumnName="componentName" />
+                <ScalarProperty Name="componentPath" ColumnName="componentPath" />
+                <ScalarProperty Name="routeName" ColumnName="routeName" />
+                <ScalarProperty Name="description" ColumnName="description" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="mainID" ColumnName="mainID" />
+                <ScalarProperty Name="rowID" ColumnName="rowID" />
+                <ScalarProperty Name="isid" ColumnName="isid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="base_company">
+            <EntityTypeMapping TypeName="vueAdminModel.base_company">
+              <MappingFragment StoreEntitySet="base_company">
+                <ScalarProperty Name="levelID" ColumnName="levelID" />
+                <ScalarProperty Name="address" ColumnName="address" />
+                <ScalarProperty Name="principalEmail" ColumnName="principalEmail" />
+                <ScalarProperty Name="principalPhone" ColumnName="principalPhone" />
+                <ScalarProperty Name="principalName" ColumnName="principalName" />
+                <ScalarProperty Name="parentFullName" ColumnName="parentFullName" />
+                <ScalarProperty Name="parentFullID" ColumnName="parentFullID" />
+                <ScalarProperty Name="parentID" ColumnName="parentID" />
+                <ScalarProperty Name="companyName_en" ColumnName="companyName_en" />
+                <ScalarProperty Name="companyName_chs" ColumnName="companyName_chs" />
+                <ScalarProperty Name="companyCode" ColumnName="companyCode" />
+                <ScalarProperty Name="rowID" ColumnName="rowID" />
+                <ScalarProperty Name="isid" ColumnName="isid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="base_dept">
+            <EntityTypeMapping TypeName="vueAdminModel.base_dept">
+              <MappingFragment StoreEntitySet="base_dept">
+                <ScalarProperty Name="levelID" ColumnName="levelID" />
+                <ScalarProperty Name="parentFullName" ColumnName="parentFullName" />
+                <ScalarProperty Name="parentFullID" ColumnName="parentFullID" />
+                <ScalarProperty Name="parentID" ColumnName="parentID" />
+                <ScalarProperty Name="remark" ColumnName="remark" />
+                <ScalarProperty Name="principalEmail" ColumnName="principalEmail" />
+                <ScalarProperty Name="principalPhone" ColumnName="principalPhone" />
+                <ScalarProperty Name="principalName" ColumnName="principalName" />
+                <ScalarProperty Name="companyID" ColumnName="companyID" />
+                <ScalarProperty Name="dtptShortName" ColumnName="dtptShortName" />
+                <ScalarProperty Name="deptName" ColumnName="deptName" />
+                <ScalarProperty Name="deptCode" ColumnName="deptCode" />
+                <ScalarProperty Name="rowID" ColumnName="rowID" />
+                <ScalarProperty Name="isid" ColumnName="isid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="base_position">
+            <EntityTypeMapping TypeName="vueAdminModel.base_position">
+              <MappingFragment StoreEntitySet="base_position">
+                <ScalarProperty Name="levelID" ColumnName="levelID" />
+                <ScalarProperty Name="remark" ColumnName="remark" />
+                <ScalarProperty Name="parentFullName" ColumnName="parentFullName" />
+                <ScalarProperty Name="parentFullID" ColumnName="parentFullID" />
+                <ScalarProperty Name="parentID" ColumnName="parentID" />
+                <ScalarProperty Name="posName" ColumnName="posName" />
+                <ScalarProperty Name="posCode" ColumnName="posCode" />
+                <ScalarProperty Name="companyID" ColumnName="companyID" />
+                <ScalarProperty Name="rowID" ColumnName="rowID" />
+                <ScalarProperty Name="isid" ColumnName="isid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="base_user">
+            <EntityTypeMapping TypeName="vueAdminModel.base_user">
+              <MappingFragment StoreEntitySet="base_user">
+                <ScalarProperty Name="updateTime" ColumnName="updateTime" />
+                <ScalarProperty Name="updateUser" ColumnName="updateUser" />
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="createTime" ColumnName="createTime" />
+                <ScalarProperty Name="createUser" ColumnName="createUser" />
+                <ScalarProperty Name="remark" ColumnName="remark" />
+                <ScalarProperty Name="status" ColumnName="status" />
+                <ScalarProperty Name="phone" ColumnName="phone" />
+                <ScalarProperty Name="deptID" ColumnName="deptID" />
+                <ScalarProperty Name="companyID" ColumnName="companyID" />
+                <ScalarProperty Name="sex" ColumnName="sex" />
+                <ScalarProperty Name="userName" ColumnName="userName" />
+                <ScalarProperty Name="account" ColumnName="account" />
+                <ScalarProperty Name="rowID" ColumnName="rowID" />
+                <ScalarProperty Name="isid" ColumnName="isid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="base_token">
+            <EntityTypeMapping TypeName="vueAdminModel.base_token">
+              <MappingFragment StoreEntitySet="base_token">
+                <ScalarProperty Name="secretID" ColumnName="secretID" />
+                <ScalarProperty Name="Client" ColumnName="Client" />
+                <ScalarProperty Name="status" ColumnName="status" />
+                <ScalarProperty Name="updateTime" ColumnName="updateTime" />
+                <ScalarProperty Name="createTime" ColumnName="createTime" />
+                <ScalarProperty Name="IPAddress" ColumnName="IPAddress" />
+                <ScalarProperty Name="secretKey" ColumnName="secretKey" />
+                <ScalarProperty Name="token" ColumnName="token" />
+                <ScalarProperty Name="userID" ColumnName="userID" />
+                <ScalarProperty Name="isid" ColumnName="isid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="base_Authorize">
+            <EntityTypeMapping TypeName="vueAdminModel.base_Authorize">
+              <MappingFragment StoreEntitySet="base_Authorize">
+                <ScalarProperty Name="createTime" ColumnName="createTime" />
+                <ScalarProperty Name="createUser" ColumnName="createUser" />
+                <ScalarProperty Name="sort" ColumnName="sort" />
+                <ScalarProperty Name="itemID" ColumnName="itemID" />
+                <ScalarProperty Name="itemType" ColumnName="itemType" />
+                <ScalarProperty Name="objectID" ColumnName="objectID" />
+                <ScalarProperty Name="category" ColumnName="category" />
+                <ScalarProperty Name="rowID" ColumnName="rowID" />
+                <ScalarProperty Name="isid" ColumnName="isid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="base_APIList">
+            <EntityTypeMapping TypeName="vueAdminModel.base_APIList">
+              <MappingFragment StoreEntitySet="base_APIList">
+                <ScalarProperty Name="createTime" ColumnName="createTime" />
+                <ScalarProperty Name="createUser" ColumnName="createUser" />
+                <ScalarProperty Name="checkType" ColumnName="checkType" />
+                <ScalarProperty Name="url" ColumnName="url" />
+                <ScalarProperty Name="APIName" ColumnName="APIName" />
+                <ScalarProperty Name="rowID" ColumnName="rowID" />
+                <ScalarProperty Name="isid" ColumnName="isid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="base_moduleFormAuthorize">
+            <EntityTypeMapping TypeName="vueAdminModel.base_moduleFormAuthorize">
+              <MappingFragment StoreEntitySet="base_moduleFormAuthorize">
+                <ScalarProperty Name="authorizeValue" ColumnName="authorizeValue" />
+                <ScalarProperty Name="authorizeName" ColumnName="authorizeName" />
+                <ScalarProperty Name="formID" ColumnName="formID" />
+                <ScalarProperty Name="rowID" ColumnName="rowID" />
+                <ScalarProperty Name="isid" ColumnName="isid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="base_moduleFormAuthorizeAction">
+            <EntityTypeMapping TypeName="vueAdminModel.base_moduleFormAuthorizeAction">
+              <MappingFragment StoreEntitySet="base_moduleFormAuthorizeAction">
+                <ScalarProperty Name="apiID" ColumnName="apiID" />
+                <ScalarProperty Name="authorizeID" ColumnName="authorizeID" />
+                <ScalarProperty Name="formID" ColumnName="formID" />
+                <ScalarProperty Name="rowID" ColumnName="rowID" />
+                <ScalarProperty Name="isid" ColumnName="isid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="base_moduleFormActions">
+            <EntityTypeMapping TypeName="vueAdminModel.base_moduleFormActions">
+              <MappingFragment StoreEntitySet="base_moduleFormActions">
+                <ScalarProperty Name="apiID" ColumnName="apiID" />
+                <ScalarProperty Name="formID" ColumnName="formID" />
+                <ScalarProperty Name="rowID" ColumnName="rowID" />
+                <ScalarProperty Name="isid" ColumnName="isid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="base_userRelation">
+            <EntityTypeMapping TypeName="vueAdminModel.base_userRelation">
+              <MappingFragment StoreEntitySet="base_userRelation">
+                <ScalarProperty Name="createTime" ColumnName="createTime" />
+                <ScalarProperty Name="createUser" ColumnName="createUser" />
+                <ScalarProperty Name="ObjectID" ColumnName="ObjectID" />
+                <ScalarProperty Name="Category" ColumnName="Category" />
+                <ScalarProperty Name="userID" ColumnName="userID" />
+                <ScalarProperty Name="rowID" ColumnName="rowID" />
+                <ScalarProperty Name="isid" ColumnName="isid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="true" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="无" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
